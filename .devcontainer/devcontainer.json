@@ -1,0 +1,11 @@
+{
+  "name": "Docker for Intel Realsense with ROS 2",
+  "dockerComposeFile": [
+    "../docker/docker-compose.yml"
+  ],
+  "service": "realsense_ros2",
+  "workspaceFolder": "/ros2_ws",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+  ]
+}
