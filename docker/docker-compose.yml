@@ -9,6 +9,7 @@ services:
     tty: true
     volumes:
       - /dev:/dev
+      - ../:/workspace
     device_cgroup_rules:
       - 'c 81:* rmw'
       - 'c 189:* rmw'
