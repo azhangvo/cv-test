@@ -47,6 +47,7 @@ ENV USERNAME=${USERNAME}
 ENV USER_GID=${USER_GID}
 ENV USER_UID=${USER_UID}
 
+# Install Realsense libraries
 RUN apt-get update \
  && apt-get install -y \
     build-essential \
@@ -65,5 +66,52 @@ RUN apt-get update \
  && apt-get install -y \
     ros-${ROS_DISTRO}-rviz2 \
  && rm -rf /var/lib/apt/lists/*
+
+ # Install ROS libraries
+RUN apt-get update \
+ && apt-get install -y \
+    ros-humble-ros-base \
+    ros-humble-angles \
+    ros-humble-apriltag \
+    ros-humble-behaviortree-cpp-v3 \
+    ros-humble-bondcpp \
+    ros-humble-camera-calibration-parsers \
+    ros-humble-camera-info-manager \
+    ros-humble-compressed-image-transport \
+    ros-humble-compressed-depth-image-transport \
+    ros-humble-cv-bridge \
+    ros-humble-demo-nodes-cpp \
+    ros-humble-demo-nodes-py \
+    ros-humble-diagnostic-updater \
+    ros-humble-example-interfaces \
+    ros-humble-foxglove-bridge \
+    ros-humble-image-geometry \
+    ros-humble-image-pipeline \
+    ros-humble-image-transport \
+    ros-humble-image-transport-plugins \
+    ros-humble-launch-xml \
+    ros-humble-launch-yaml \
+    ros-humble-launch-testing \
+    ros-humble-launch-testing-ament-cmake \
+    ros-humble-nav2-bringup \
+    ros-humble-nav2-msgs \
+    ros-humble-nav2-mppi-controller \
+    ros-humble-navigation2 \
+    ros-humble-ompl \
+    ros-humble-resource-retriever \
+    ros-humble-rqt-graph \
+    ros-humble-rqt-reconfigure \
+    ros-humble-rqt-image-view \
+    ros-humble-rviz2 \
+    ros-humble-rviz-common \
+    ros-humble-rviz-default-plugins \
+    ros-humble-sensor-msgs \
+    ros-humble-slam-toolbox \
+    ros-humble-v4l2-camera \
+    ros-humble-vision-opencv \
+    ros-humble-vision-msgs
+
+RUN rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 ARG DEBIAN_FRONTEND=dialog

@@ -91,4 +91,5 @@ docker run -it --rm \
     $IMAGE_NAME \
     /bin/bash
 
+# If we run on jetson, we should add this back
 # --runtime nvidia
